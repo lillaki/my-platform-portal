@@ -1,0 +1,29 @@
+/* Tiny motion for hero (on initial load) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUpHero 0.7s ease-out forwards;
+}
+
+@keyframes fadeInUpHero {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Generic reveal-on-scroll behavior */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.45s ease-out,
+    transform 0.45s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When IntersectionObserver marks them visible */
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
