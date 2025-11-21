@@ -142,6 +142,15 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* FULL-WIDTH PLATFORM IMAGE */}
+      <section className="platform-image-section reveal-on-scroll">
+        <img
+          src="/images/kasm.png"
+          alt="Platform preview"
+          className="platform-image"
+        />
+      </section>
+
       {/* FEATURES */}
       <section className="section features-section">
         <div className="section-inner">

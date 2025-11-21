@@ -182,7 +182,14 @@ a {
   width: 100vw;
   margin-left: calc(50% - 50vw);  /* full-bleed */
   margin-right: calc(50% - 50vw);
-  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 40%, #93c5fd 100%);
+  /*background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 40%, #93c5fd 100%); */
+
+  background-image: url('/images/pink.jpg');
+  background-size: cover;          /* makes it fullscreen */
+  background-position: center;      /* centers the image */
+  background-repeat: no-repeat;
+  background-attachment: scroll;    /* normal scroll behavior */
+
   overflow: hidden;
 }
 
@@ -194,7 +201,7 @@ a {
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: rgba(49, 77, 106, 0.25);
+  /*background: rgba(49, 77, 106, 0.25); */
   z-index: 0;
 }
 
@@ -630,6 +637,32 @@ body.home-bg {
   font-size: 0.9rem;
   color: #64748b;
 }
+/* === Wide screenshot (wider than content, but not full bleed) === */
+
+.platform-image-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: none !important;   /* force override */
+  padding: 0 4rem;
+}
+
+.platform-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 28px;    /* larger modern radius */
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.12),
+    0 10px 32px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+
+.platform-image:hover {
+  transform: scale(1.01);
+}
+
 
 /* Generic section wrapper for extra homepage sections */
 
