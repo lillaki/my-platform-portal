@@ -75,33 +75,77 @@ export const Home: React.FC = () => {
     <>
       {/* HERO */}
       <section className="hero fullpage">
-        <div className="hero-overlay">
-          <div className="frosted-wrap">
-            <div className="frosted-box fade-in">
-              <p className="hero-tagline">Welcome to</p>
-              <h1 className="hero-title">Our Platform Release Hub</h1>
-              <p className="hero-subtitle">
-                Stay up to date with the latest changes, improvements, and features in our
-                platform.
-              </p>
+        <div className="hero-wave" />
 
-              <div className="hero-actions">
-                <button className="btn primary" onClick={() => navigate('/releases')}>
-                  View latest releases
-                </button>
-                <button className="btn ghost" onClick={() => navigate('/build-your-platform')}>
-                  Build your own
-                </button>
-              </div>
+        <div className="hero-inner">
+          {/* Left: text */}
+          <div className="hero-content">
+            <div className="hero-pill">Platform Portal · Internal release hub</div>
 
-              <div
-                className="scroll-down"
-                onClick={scrollToAbout}
-                role="button"
-                aria-label="Scroll down"
-              >
-                ↓
+            <h1 className="hero-title">
+              One place for all your platform releases.
+            </h1>
+
+            <p className="hero-subtitle">
+              Keep teams aligned on what shipped, what changed, and how to build on top of
+              your platform — without digging through chat threads and emails.
+            </p>
+
+            <div className="hero-actions">
+              <button className="btn primary" onClick={() => navigate('/releases')}>
+                View latest releases
+              </button>
+              <button className="btn ghost" onClick={() => navigate('/build-your-platform')}>
+                Build on the platform
+              </button>
+            </div>
+
+            <div className="hero-kpi-row">
+              <div className="hero-kpi">
+                <span className="hero-kpi-number">25+</span>
+                <span className="hero-kpi-label">Services tracked in one view</span>
               </div>
+              <div className="hero-kpi">
+                <span className="hero-kpi-number">8 teams</span>
+                <span className="hero-kpi-label">Using the Portal daily</span>
+              </div>
+              <div className="hero-kpi">
+                <span className="hero-kpi-number">Zero</span>
+                <span className="hero-kpi-label">Release emails to chase</span>
+              </div>
+            </div>
+
+            <div
+              className="scroll-down"
+              onClick={scrollToAbout}
+              role="button"
+              aria-label="Scroll down"
+            >
+              ↓
+            </div>
+          </div>
+
+          {/* Right: simple flat visual */}
+          <div className="hero-visual">
+            <div className="hero-visual-frame">
+              <div className="hero-visual-header">
+                <span className="hero-visual-title">Recent releases</span>
+                <span className="hero-visual-label">Live</span>
+              </div>
+              <ul className="hero-visual-list">
+                <li>
+                  <span>Platform API · v3.4</span>
+                  <span className="hero-visual-tag hero-visual-tag-major">Major</span>
+                </li>
+                <li>
+                  <span>Auth service · v2.18</span>
+                  <span className="hero-visual-tag hero-visual-tag-secondary">Security</span>
+                </li>
+                <li>
+                  <span>Portal UI · v1.9</span>
+                  <span className="hero-visual-tag hero-visual-tag-muted">UX</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
