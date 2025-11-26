@@ -6,6 +6,7 @@ import { BuildPlatform } from './pages/BuildPlatform';
 import { NotFound } from './pages/NotFound';
 import { Layout } from './components/Layout';
 import HowToGuide from './pages/HowToGuide';
+import PlatformArchitecture from './pages/PlatformArchitecture';
 
 
 const App: React.FC = () => {
@@ -13,6 +14,7 @@ const App: React.FC = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/platform-architecture" element={<PlatformArchitecture />} />
         <Route path="/releases" element={<Releases />} />
         <Route path="/build-your-platform" element={<BuildPlatform />} />
         <Route path="/build-your-platform/:id" element={<HowToGuide />} />

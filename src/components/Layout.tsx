@@ -17,6 +17,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           <NavLink to="/" end className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
             Home
           </NavLink>
+          <NavLink to="/platform-architecture" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
+            Platform architecture
+          </NavLink>
           <NavLink to="/releases" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
             Releases
           </NavLink>
