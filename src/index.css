@@ -386,100 +386,180 @@ a {
   margin-bottom: 2rem; /* optional: space under title */
 }
 
-/* Releases */
+/* === Release timeline === */
 
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-  color: #475569;
+.timeline {
+  position: relative;
+  margin-top: 2.5rem;
 }
 
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.chip {
-  border-radius: 999px;
-  border: 1px solid rgba(2, 6, 23, 0.12);
-  background: #ffffff;
-  color: #0f172a;
-  padding: 0.25rem 0.9rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  box-shadow: 0 1px 1px rgba(2, 6, 23, 0.04);
-}
-
-.chip:hover {
-  background: #f8fafc;
-}
-
-.chip-active {
-  background: #444444;
-  color: #ffffff;
-}
-
-.release-list {
+/* Left rail (marker + connecting line) */
+.timeline-item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
 }
 
-.release-card {
-  border-radius: 0.9rem;
-  padding: 1rem 1.2rem;
+.timeline-left {
+  position: relative;
+  width: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #111827;
   background: #ffffff;
-  border: 1px solid rgba(2, 6, 23, 0.08);
-  box-shadow:
-    0 1px 2px rgba(2, 6, 23, 0.06),
-    0 8px 24px rgba(2, 6, 23, 0.06);
+  margin-top: 0.6rem;
 }
 
-.release-card-header {
+.timeline-connector {
+  position: absolute;
+  top: 1.4rem;
+  bottom: -2.5rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(148, 163, 184, 0.7),
+    rgba(148, 163, 184, 0.15)
+  );
+}
+
+/* Right-hand card */
+.timeline-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow:
+    0 14px 45px rgba(15, 23, 42, 0.12),
+    0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+.timeline-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 1rem;
+  margin-bottom: 0.6rem;
 }
 
-.release-card-header h3 {
-  margin: 0;
-}
-
-.release-codename {
-  margin: 0.1rem 0 0;
-  font-size: 0.85rem;
-  color: #444444;
-}
-
-.release-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.15rem;
-  font-size: 0.8rem;
-}
-
-.release-date {
-  color: #64748b;
-}
-
-.release-tag {
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
-  color: #475569;
-}
-
-.release-highlights {
-  margin: 0.6rem 0 0;
-  padding-left: 1.1rem;
-  font-size: 0.95rem;
+.timeline-month {
+  font-weight: 600;
+  font-size: 1rem;
   color: #0f172a;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Release “type” badge */
+.timeline-badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.timeline-badge-major {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.timeline-badge-minor {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.timeline-badge-maintenance {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.timeline-highlight {
+  margin: 0.4rem 0 1rem;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* Features vs Fixes sections */
+.timeline-sections {
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+  padding-top: 1.5rem;
+  margin-top: 0.75rem;
+
+}
+
+.timeline-section h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
+
+.timeline-section ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+.timeline-section li + li {
+  margin-top: 0.3rem;
+}
+
+/* Stack sections on small screens */
+@media (max-width: 768px) {
+  .timeline-item {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .timeline-card {
+    padding: 1.3rem 1.4rem;
+  }
+
+  .timeline-sections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Stronger section headers inside a release card */
+.timeline-section-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.45rem;
+}
+
+.timeline-section-header.features {
+  background: rgba(16, 185, 129, 0.15); /* green */
+  color: #065f46;
+}
+
+.timeline-section-header.fixes {
+  background: rgba(59, 130, 246, 0.15); /* blue */
+  color: #1e3a8a;
+}
+
+/* Slight divider line between features and fixes when stacked */
+.timeline-section + .timeline-section {
+  padding-top: 1rem;
 }
 
 /* Position the inline copy button in the top-right of code blocks */
