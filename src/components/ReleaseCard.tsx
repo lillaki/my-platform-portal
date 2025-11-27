@@ -1,3 +1,4 @@
+// src/components/ReleaseCard.tsx
 import React from 'react';
 import type { Release } from '../pages/Releases';
 
@@ -10,16 +11,29 @@ export const ReleaseCard: React.FC<Props> = ({ release }) => {
     <article className="release-card">
       <header className="release-card-header">
         <div>
-          <h3>{release.version}</h3>
+          {/* Title from monthLabel */}
+          <h3>{release.monthLabel}</h3>
+          {/* Subtitle from shippedOn */}
+          <p className="release-date">{release.shippedOn}</p>
         </div>
+
         <div className="release-meta">
-          <span className={`badge badge-${release.type.toLowerCase()}`}>{release.type}</span>
-          <span className="release-date">{release.date}</span>
+          {release.tag && (
+            <span className={`badge badge-${release.tag.toLowerCase()}`}>
+              {release.tag}
+            </span>
+          )}
         </div>
       </header>
-      <p className="release-tag">Area: {release.tag}</p>
+
+      {/* One-line summary */}
+      <p className="release-tag">{release.highlight}</p>
+
+      {/* Use features as “highlights” list */}
       <ul className="release-highlights">
-        {release.highlights.map((h, idx) => <li key={idx}>{h}</li>)}
+        {release.features.map((f, idx) => (
+          <li key={idx}>{f}</li>
+        ))}
       </ul>
     </article>
   );

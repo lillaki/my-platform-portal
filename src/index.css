@@ -817,6 +817,7 @@ body.home-bg {
   font-size: 0.9rem;
   color: #64748b;
 }
+
 /* === Wide screenshot (wider than content, but not full bleed) === */
 
 .platform-image-section {
@@ -1218,6 +1219,8 @@ body.home-bg {
   border-radius: 16px;
   padding: 1.1rem 1.2rem;
   border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow:
+    0 8px 22px rgba(15, 23, 42, 0.05);
 }
 
 .arch-card h4 {
@@ -1251,7 +1254,7 @@ body.home-bg {
   margin-top: 0.45rem;
 }
 
-/* Responsive */
+/* Responsive for architecture grid/layout */
 
 @media (max-width: 900px) {
   .arch-layout {
@@ -1276,20 +1279,34 @@ body.home-bg {
 }
 
 .arch-page {
+  width: 100%;
+  background: #f5f7fa;
   margin-left: calc(50% - 50vw);   /* full bleed effect */
   margin-right: calc(50% - 50vw);
-  background: #f5f7fa;
 }
 
 /* Two-column docs layout */
 .docs-layout {
+  position: relative;
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 2rem;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 3rem;
   width: 100%;
-  max-width: 1600px;     /* prevents overly wide text */
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 2rem 12rem 2rem 2rem;     /* optional page padding */
+  padding: 2rem 2rem 3rem;
+}
+
+/* Full-height vertical divider between nav + content */
+.docs-layout::before {
+  content: "";
+  position: absolute;
+  left: 260px; /* match sidebar width */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(148, 163, 184, 0.25);
+  z-index: 1;
 }
 
 /* Left sidebar */
@@ -1328,120 +1345,9 @@ body.home-bg {
   background: rgba(148, 163, 184, 0.12);
 }
 
-/* Responsive: stack sidebar on top on small screens */
-@media (max-width: 900px) {
-  .docs-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .docs-nav-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.75rem;
-  }
-}
-
-/* === Docs-style layout with left sidebar index === */
-
-.arch-page {
-  background: #ffffff;
-}
-
-
-.docs-nav-title {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #9ca3af;
-  margin: 0 0 0.75rem;
-}
-
-.docs-nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.docs-nav-list a {
-  display: block;
-  padding: 0.35rem 0.1rem;
-  font-size: 0.92rem;
-  color: #4b5563;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.docs-nav-list a:hover {
-  color: #111827;
-  background: rgba(148, 163, 184, 0.12);
-}
-
 /* Right-hand main content */
 .docs-main {
   min-width: 0;
-}
-
-/* Responsive: stack sidebar on top on small screens */
-@media (max-width: 900px) {
-  .docs-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .docs-nav-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.75rem;
-  }
-}
-
-/* Wrapper for full-height line */
-.docs-layout {
-  position: relative;
-}
-
-/* Full-height vertical divider */
-.docs-layout::before {
-  content: "";
-  position: absolute;
-  left: 260px;   /* same as sidebar width */
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: rgba(148, 163, 184, 0.25); /* subtle slate line */
-  z-index: 2;
-}
-
-/* === Docs-style layout with left sidebar index === */
-
-.arch-page {
-  width: 100%;
-  background: #f5f7fa;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
-
-/* Two-column docs layout */
-.docs-layout {
-  position: relative;
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 3rem;
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 2rem 2rem 3rem;
-}
-
-/* Full-height vertical divider between nav + content */
-.docs-layout::before {
-  content: "";
-  position: absolute;
-  left: 260px; /* match sidebar width */
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(148, 163, 184, 0.25);
-  z-index: 1;
 }
 
 /* Hamburger toggle – hidden on desktop */
@@ -1508,7 +1414,6 @@ body.home-bg {
 }
 
 /* ===== Responsive: collapse sidebar into hamburger ===== */
-/* ===== Responsive: collapse sidebar into hamburger ===== */
 @media (max-width: 1200px) {
   .docs-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -1546,4 +1451,3 @@ body.home-bg {
     gap: 0.35rem;
   }
 }
-

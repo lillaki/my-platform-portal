@@ -1,7 +1,7 @@
 // src/pages/Releases.tsx
 import React from 'react';
 
-type Release = {
+export type Release = {
   id: string;
   monthLabel: string;      // e.g. "January 2025"
   shippedOn: string;       // e.g. "Shipped January 28, 2025"
